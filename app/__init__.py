@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy()#实例化SQLAlchemy
 
-
-from .views.student import student
+from .views.student import students
 
 #创建app
 def create_app():
@@ -14,12 +11,7 @@ def create_app():
   app.config.from_object('config')
 
   # 注册蓝图
-  app.register_blueprint(student)
-
-  # 2. 注册 Flask-SQLAlchemy
-  # 这个对象在其他地方想要使用
-  # SQLAlchemy(app)
-  db.init_app(app)
+  app.register_blueprint(students)
 
   return app
 

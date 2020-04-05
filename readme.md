@@ -15,7 +15,7 @@
 
 •**技术栈**
 
-- Python 3.7 开发， 主要用到Flask等模块，由python本身提供HTTP服务
+- Python 3.6 开发， 主要用到Flask等模块，由python本身提供HTTP服务
 
 - Mysql做数据库， 进行数据储存
 
