@@ -26,4 +26,23 @@
 - 前端做数据数据的动态更新交互，python做数据处理
 
 
+•**项目运行**
+```shell
+cd evolve_devops
+python main.py
+
+# 访问 http://127.0.0.1:8080/
+➜  evolve_devops git:(master) ✗  python main.py
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with fsevents reloader
+ * Debugger is active!
+
+# app.run("0.0.0.0", 8080, debug=True)
+# 当 debug=True 的时候，python代码的修改是立即生效的，不用重启项目
+```
 

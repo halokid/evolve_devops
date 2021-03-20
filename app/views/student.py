@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for
 from util import mysql
 import time
 students = Blueprint('student', __name__)
@@ -9,6 +9,7 @@ students = Blueprint('student', __name__)
 mysqlObj = mysql.Mysql()
 
 @students.route('/list')
+@students.route('/')
 def studentList():
   conn, cursor = mysqlObj.getCursor()
   sql = "select * from students"
@@ -56,7 +57,21 @@ def studentDel():
   print(conn.affected_rows())
   return render_template("del.html")
 
+@students.route('/add')
+def studentAdd():
+  return render_template("add.html")
 
+@students.route('/doadd', methods = ["POST"])
+def studentDoAdd():
+  name=request.form.get('name')
+  classx=request.form.get('class')
+  age=request.form.get('age')
+  conn, cursor = mysqlObj.getCursor()
+  sql = "insert into students set name='" + name + "', class='" + classx + "', age=" + str(age)
+  cursor.execute(sql)
+  conn.commit()
+  print(conn.affected_rows())
+  return redirect(url_for('.studentList'))
 
 
 

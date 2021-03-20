@@ -10,7 +10,8 @@
 <body>
 <br><br>
 <table class="table table-striped" style="width: 80%; margin:auto;">
-    <caption><font style="font-weight: bold; font-size: larger; color: blue">学生信息展示</font></caption>
+    <caption><font style="font-weight: bold; font-size: larger; color: blue">学生信息展示</font>
+        <div align="left"><a href="add">添加学生</a></div>  </caption>
     <thead>
     <tr>
         <th>姓名</th>
@@ -25,7 +26,7 @@
         <td>{{ row.name }}</td>
         <td>{{ row.class }}</td>
         <td>{{ row.age }}</td>
-        <td><a href="edit?id={{row.id}}">编辑</a>&nbsp;&nbsp;&nbsp;<a href="delete?id={{row.id}}">删除</a></td>
+        <td><a href="edit?id={{row.id}}">编辑</a>&nbsp;&nbsp;&nbsp;<a href="delete?id={{row.id}}" onclick="return confirm('确认要删除么？')">删除</a></td>
     </tr>
     {% endfor %}
     </tbody>
